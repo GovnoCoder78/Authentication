@@ -44,18 +44,36 @@ class  HomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  Expanded(child: Container(),
+                    flex: 4,
+                  ),
                   Expanded(
-                      child:
-                      TextFormField(
+                      child:Container(
+                        child: TextFormField(
                         textAlign: TextAlign.left,
                         decoration: InputDecoration(
                           labelText:  'Email',
                           border: OutlineInputBorder(),
                         ),
                       )
+                      ),
+                     flex: 1,
                   ),
                   Expanded(
-                    child: TextButton(
+                    child:Container(
+                        child: TextFormField(
+                          textAlign: TextAlign.left,
+                          decoration: InputDecoration(
+                            labelText:  'Пароль',
+                            border: OutlineInputBorder(),
+                          ),
+                        )
+                    ),
+                    flex: 1,
+                  ),
+                  Expanded(
+                    child: Container(
+                      child: TextButton(
                         child:  Text('Войти',
                           style: TextStyle(
                               fontSize: 30
@@ -63,7 +81,10 @@ class  HomePage extends StatelessWidget {
                         ),
                         onPressed: null),
                   ),
+                    flex: 1,
+                  ),
                   Expanded(
+                    child: Container(
                     child: TextButton(onPressed: null,
                       child: Text('Создать аккаунт',
                         style: TextStyle(
@@ -71,7 +92,12 @@ class  HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    ),
+                    flex: 1
                   ),
+                  Expanded(child: Container(),
+                  flex: 5
+                  )
                 ],
               ),
             ),
