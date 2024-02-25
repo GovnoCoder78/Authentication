@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:authenticator/Pages/SignUp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/signUp':(BuildContext context) {
+          return SignUp();
+        }
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -45,58 +51,80 @@ class  HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Expanded(child: Container(),
-                    flex: 4,
+                    flex: 3,
                   ),
                   Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25)
+                        ),
+                        child: Column(
+                          children: <Widget> [
+                    Expanded(
                       child:Container(
                         child: TextFormField(
-                        textAlign: TextAlign.left,
-                        decoration: InputDecoration(
+                          textAlign: TextAlign.left,
+                          decoration: InputDecoration(
                           labelText:  'Email',
                           border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.email),
                         ),
                       )
                       ),
-                     flex: 1,
+                     flex: 2,
                   ),
-                  Expanded(
-                    child:Container(
+                    Expanded(
+                      child: Container(),
+                      flex: 1
+                  ),
+                    Expanded(
+                      child:Container(
                         child: TextFormField(
                           textAlign: TextAlign.left,
                           decoration: InputDecoration(
                             labelText:  'Пароль',
                             border: OutlineInputBorder(),
+                            prefixIcon: Icon(Icons.vpn_key)
                           ),
                         )
                     ),
-                    flex: 1,
+                    flex: 2,
                   ),
-                  Expanded(
+                    Expanded(
                     child: Container(
+                      alignment: Alignment.topLeft,
                       child: TextButton(
-                        child:  Text('Войти',
+                        child:  Text('Еще нет аккаунта? Зарегистрироваться',
                           style: TextStyle(
-                              fontSize: 30
+                              fontSize: 12
                           ),
                         ),
-                        onPressed: null),
+                        onPressed:(){
+                          Navigator.pushNamed(context, '/signUp');
+                      },
+                      ),
                   ),
-                    flex: 1,
+                    flex: 2,
                   ),
-                  Expanded(
+                    Expanded(
                     child: Container(
-                    child: TextButton(onPressed: null,
-                      child: Text('Создать аккаунт',
+                    child: ElevatedButton(onPressed: null,
+                      child: Text('Войти',
                         style: TextStyle(
-                            fontSize: 15
+                            fontSize: 30
                         ),
                       ),
                     ),
                     ),
-                    flex: 1
+                    flex: 2
+                            ),
+                          ]
+                        ),
+                      ),
+                    flex: 4,
                   ),
                   Expanded(child: Container(),
-                  flex: 5
+                  flex: 3
                   )
                 ],
               ),
