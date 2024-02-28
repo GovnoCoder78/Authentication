@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:authenticator/Pages/SignUp.dart';
-
+import 'package:authenticator/pages/SignUp.dart';
+import 'package:authenticator/pages/CommoditiesList.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,6 +15,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/signUp':(BuildContext context) {
           return SignUp();
+        },
+        '/commoditiesList':(BuildContext context){
+          return CommoditiesList();
         }
       },
       title: 'Flutter Demo',
@@ -108,7 +111,9 @@ class  HomePage extends StatelessWidget {
                   ),
                     Expanded(
                     child: Container(
-                    child: ElevatedButton(onPressed: null,
+                    child: ElevatedButton(onPressed:(){
+                      Navigator.pushNamed(context, '/commoditiesList');
+                    },
                       child: Text('Войти',
                         style: TextStyle(
                             fontSize: 30
